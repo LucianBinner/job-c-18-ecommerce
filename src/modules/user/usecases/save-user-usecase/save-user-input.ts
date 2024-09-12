@@ -1,3 +1,3 @@
-import { UserModel } from '../../domain/models/user-model';
+import { UserModel } from '../../models/user-model';
 
-export type SaveUserInput = Omit<UserModel, 'id' | 'isActive' | 'note'>;
+export type SaveUserInput = Omit<UserModel, 'id'>;

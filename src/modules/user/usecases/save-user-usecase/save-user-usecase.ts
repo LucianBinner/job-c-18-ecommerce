@@ -1,25 +1,21 @@
-import {
-  CryptographyInterface,
-  UseCaseInterface,
-  ValidatorInterface,
-} from '@/modules/@shared/protocols';
-import { UserRepository } from '../../domain/repositories/user/user-repository';
 import { ConflictDataError } from '@/modules/@shared/errors';
-import { SaveCto as I } from '../../domain/repositories/user/ctos';
+import { SaveUserInput } from './save-user-input';
+import { Injectable } from '@nestjs/common';
+import { UserRepository } from '../../repositories/user/user-repository';
+import { CryptographyAdapter } from '@/modules/@shared/adapters';
 
-export class SaveUserUseCase implements UseCaseInterface<I, void> {
+@Injectable()
+export class SaveUserUseCase {
   constructor(
-    private readonly validations: ValidatorInterface,
     private readonly userRepository: UserRepository,
-    private readonly cryptography: CryptographyInterface,
+    private readonly cryptography: CryptographyAdapter,
   ) {}
-  async handle(input: I): Promise<void> {
-    this.validations.validate(input);
+  async handle(input: SaveUserInput): Promise<void> {
     const userResponse = await this.userRepository.getByAccessId(
       input.accessId,
     );
     if (userResponse) throw new ConflictDataError(input.accessId);
-    const hash = await this.cryptography.hash(input.password);
+    const hash = await this.cryptography.hashGenerator(input.password);
     await this.userRepository.save({ ...input, password: hash });
   }
 }
