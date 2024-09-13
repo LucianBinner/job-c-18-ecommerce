@@ -4,6 +4,7 @@ import { SignInUseCase } from '../../usecases/signin-usecase/signin-usecase';
 import { SignInRequest } from '../request/signin-request';
 import { SignUpRequest } from '../request/signup-request';
 import { SignInResponse } from '../response/signin-request';
+import { ApiBearerAuth, ApiOkResponse } from '@nestjs/swagger';
 
 @Controller('/user')
 export class UserController {
@@ -13,6 +14,7 @@ export class UserController {
   ) {}
 
   @Post('/signup')
+  @ApiBearerAuth()
   async signUp(
     @Body()
     input: SignUpRequest,
@@ -21,6 +23,7 @@ export class UserController {
   }
 
   @Post('/signin')
+  @ApiOkResponse({ type: SignInResponse, description: 'Sign In User' })
   async signIn(
     @Body()
     input: SignInRequest,
