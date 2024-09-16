@@ -1,6 +1,7 @@
-import { IsNotEmpty, IsString, IsNumber, IsBoolean } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class UserModel {
+  @IsNotEmpty()
   @IsNumber()
   readonly id: number;
 

@@ -1,3 +1,3 @@
-import { UserModel } from '../../models/user-model';
+import { SignUpRequest } from '../../entrypoints/request/signup-request';
 
-export type SaveUserInput = Omit<UserModel, 'id'>;
+export type SaveUserInput = SignUpRequest;

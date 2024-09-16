@@ -1,5 +1,17 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString, IsBoolean } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsString,
+  IsBoolean,
+  IsArray,
+  IsObject,
+} from 'class-validator';
+
+export class UserRoleRequest {
+  @IsNotEmpty()
+  @IsString()
+  readonly role: string;
+}
 
 export class SignUpRequest {
   @ApiProperty()
@@ -24,5 +36,11 @@ export class SignUpRequest {
 
   @ApiProperty()
   @IsString()
-  note: string;
+  note: string = '';
+
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsArray()
+  @IsObject({ each: true })
+  roles: UserRoleRequest[] = [];
 }

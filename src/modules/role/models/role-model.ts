@@ -1,6 +1,9 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class RoleModel {
+  @IsNumber()
+  readonly id?: number;
+
   @IsNotEmpty()
   @IsString()
   readonly role: string;
