@@ -1,8 +1,8 @@
 import { CryptographyAdapter } from '@/modules/@shared/adapters';
 import { ConflictDataError } from '@/modules/@shared/errors';
 import { Injectable } from '@nestjs/common';
-import { UserRoleRepository } from '../../repositories/user-role/user-role-repository';
-import { UserRepository } from '../../repositories/user/user-repository';
+import { UserRoleRepository } from '../../../@shared/repositories/user-role/user-role-repository';
+import { UserRepository } from '../../../@shared/repositories/user/user-repository';
 import { MapUserCTORule } from './rules';
 import { SaveUserInput } from './save-user-input';
 

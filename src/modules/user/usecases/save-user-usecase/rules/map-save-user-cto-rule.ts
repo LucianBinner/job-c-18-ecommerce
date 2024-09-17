@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { SaveCto } from '../../../repositories/user/cto/save-cto';
+import { SaveCto } from '../../../../@shared/repositories/user/cto/save-cto';
 import { SaveUserInput } from '../save-user-input';
 
 @Injectable()

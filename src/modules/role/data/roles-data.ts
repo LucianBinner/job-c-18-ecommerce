@@ -11,4 +11,9 @@ export const roleData: RoleModel[] = [
     name: 'Delete User',
     description: 'Allows the user to delete users',
   },
+  {
+    role: 'GetRoles',
+    name: 'Get Roles',
+    description: 'Allows the user to get roles',
+  },
 ];

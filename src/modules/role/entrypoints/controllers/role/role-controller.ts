@@ -2,6 +2,7 @@ import { GetRolesUseCase } from '@/modules/role/usecases/get-roles/get-roles-use
 import { Controller, Get } from '@nestjs/common';
 import { ApiBearerAuth, ApiOkResponse } from '@nestjs/swagger';
 import { GetRoleResponse } from '../../response/get-role-response';
+import { Auth } from '@/modules/@shared/decorator/auth/auth-decorator';
 
 @Controller('/role')
 export class RoleController {
@@ -13,6 +14,7 @@ export class RoleController {
     type: Array<GetRoleResponse>,
     description: 'Get Roles User',
   })
+  @Auth(['GetRoles'])
   async signUp(): Promise<GetRoleResponse[]> {
     return await this.getRolesUseCase.handle();
   }

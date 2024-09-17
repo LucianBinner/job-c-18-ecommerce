@@ -1,4 +1,4 @@
-import { PrismaConfig } from '@/config/prisma.config';
+import { PrismaConfig } from '@/modules/@shared/config/prisma.config';
 import { Injectable } from '@nestjs/common';
 import { UserModel } from '../../models/user-model';
 import { SaveCto } from './cto/save-cto';

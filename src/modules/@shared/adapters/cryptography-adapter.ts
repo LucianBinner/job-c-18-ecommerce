@@ -16,4 +16,9 @@ export class CryptographyAdapter {
   async tokenGenerator(params: any): Promise<string> {
     return await jwt.sign(params, process.env.JWT_SECRET, { expiresIn: '1d' });
   }
+
+  async tokenDecrypt<P>(token: string): Promise<P | null> {
+    const value: any = await jwt.verify(token, process.env.JWT_SECRET);
+    return value;
+  }
 }

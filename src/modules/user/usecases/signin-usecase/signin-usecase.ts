@@ -1,7 +1,7 @@
 import { CryptographyAdapter } from '@/modules/@shared/adapters';
 import { InvalidParamError, UnauthorizedError } from '@/modules/@shared/errors';
 import { Injectable } from '@nestjs/common';
-import { UserRepository } from '../../repositories/user/user-repository';
+import { UserRepository } from '../../../@shared/repositories/user/user-repository';
 import { SignInInput } from './signin-input';
 import { SignInOutput } from './signin-output';
 

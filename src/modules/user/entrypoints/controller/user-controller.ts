@@ -5,6 +5,7 @@ import { SignInRequest } from '../request/signin-request';
 import { SignUpRequest } from '../request/signup-request';
 import { SignInResponse } from '../response/signin-request';
 import { ApiBearerAuth, ApiOkResponse } from '@nestjs/swagger';
+import { Auth } from '@/modules/@shared/decorator/auth/auth-decorator';
 
 @Controller('/user')
 export class UserController {
@@ -15,6 +16,7 @@ export class UserController {
 
   @Post('/signup')
   @ApiBearerAuth()
+  @Auth(['CreateUser'])
   async signUp(
     @Body()
     input: SignUpRequest,
