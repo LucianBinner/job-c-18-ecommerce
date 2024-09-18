@@ -1,5 +1,5 @@
-import { UserModel } from '@/modules/@shared/models/user-model';
-import { UserRequest } from '@/modules/user/entrypoints/request/user-request';
+import { UserModel } from '@/modules/@shared/models/user.model';
+import { UserRequest } from '@/modules/user/entrypoints/request/user.request';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

@@ -1,4 +1,4 @@
-import { RoleModel } from '../models/role-model';
+import { RoleModel } from '../models/role.model';
 
 export const roleData: RoleModel[] = [
   {

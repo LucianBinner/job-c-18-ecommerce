@@ -1,4 +1,4 @@
-import { UserRequest } from '../../entrypoints/request/user-request';
+import { UserRequest } from '../../entrypoints/request/user.request';
 
 export type UpdateUserInput = {
   id: number;

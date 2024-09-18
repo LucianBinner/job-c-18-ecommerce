@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { RequestInputUtil } from './bearer-token-util-input';
+import { BearerTokenUtilInput } from './bearer-token.util.Input';
 
 @Injectable()
 export class BearerTokenUtil {
-  getBearerToken(input: RequestInputUtil): string | null {
+  getBearerToken(input: BearerTokenUtilInput): string | null {
     const { authorization } = input.headers;
     if (authorization) {
       const token = authorization.replace('Bearer ', '');

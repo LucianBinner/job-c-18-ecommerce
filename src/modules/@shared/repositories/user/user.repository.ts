@@ -1,9 +1,9 @@
 import { PrismaConfig } from '@/modules/@shared/config/prisma.config';
 import { Injectable } from '@nestjs/common';
-import { UserModel } from '../../models/user-model';
-import { UpdateCto } from './cto/update-cto';
-import { SaveCto } from './cto/save-cto';
-import { GetByAccessIdAndNotIdCto } from './cto/get-by-access-id-and-not-id-cto';
+import { UserModel } from '../../models/user.model';
+import { UpdateCto } from './cto/update.cto';
+import { SaveCto } from './cto/save.cto';
+import { GetByAccessIdAndNotIdCto } from './cto/get-by-access-id-and-not-id.cto';
 
 @Injectable()
 export class UserRepository {

@@ -1,4 +1,4 @@
-export type SignInInput = {
+export type LoginUserInput = {
   accessId: string;
   password: string;
 };

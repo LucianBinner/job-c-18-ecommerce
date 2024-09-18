@@ -1,10 +1,10 @@
 import { CryptographyAdapter } from '@/modules/@shared/adapters';
 import { ConflictDataError } from '@/modules/@shared/errors';
 import { Injectable } from '@nestjs/common';
-import { UserRoleRepository } from '../../../@shared/repositories/user-role/user-role-repository';
-import { UserRepository } from '../../../@shared/repositories/user/user-repository';
-import { UpdateUserInput } from './update-user-input';
+import { UserRoleRepository } from '../../../@shared/repositories/user-role/user-role.repository';
+import { UserRepository } from '../../../@shared/repositories/user/user.repository';
 import { MapUserRequestToCTOHelper } from '../../helpers';
+import { UpdateUserInput } from './update-user.input';
 
 @Injectable()
 export class UpdateUserUseCase {

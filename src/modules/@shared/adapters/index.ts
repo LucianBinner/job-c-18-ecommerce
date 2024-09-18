@@ -1,1 +1,1 @@
-export * from './cryptography-adapter';
+export * from './cryptography.adapter';

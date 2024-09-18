@@ -1,14 +1,14 @@
-import { UserController } from './entrypoints/controller/user-controller';
+import { UserController } from './entrypoints/controller/user.controller';
 import { MapUserRequestToCTOHelper } from './helpers';
-import { SaveUserUseCase } from './usecases/save-user-usecase/save-user-usecase';
-import { SignInUseCase } from './usecases/signin-usecase/signin-usecase';
-import { UpdateUserUseCase } from './usecases/update-user-usecase/update-user-usecase';
+import { CreateUserUseCase } from './usecases/create-user/create-user.usecase';
+import { LoginUserUseCase } from './usecases/login-user/login-user.usecase';
+import { UpdateUserUseCase } from './usecases/update-user/update-user.usecase';
 
 export const controllersUser = [UserController];
 
 export const providersUser = [
-  SaveUserUseCase,
-  SignInUseCase,
+  CreateUserUseCase,
+  LoginUserUseCase,
   UpdateUserUseCase,
   MapUserRequestToCTOHelper,
 ];

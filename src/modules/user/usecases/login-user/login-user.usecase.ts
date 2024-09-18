@@ -1,17 +1,17 @@
 import { CryptographyAdapter } from '@/modules/@shared/adapters';
 import { InvalidParamError, UnauthorizedError } from '@/modules/@shared/errors';
 import { Injectable } from '@nestjs/common';
-import { UserRepository } from '../../../@shared/repositories/user/user-repository';
-import { SignInInput } from './signin-input';
-import { SignInOutput } from './signin-output';
+import { UserRepository } from '../../../@shared/repositories/user/user.repository';
+import { LoginUserInput } from './login-user.input';
+import { LoginUserOutput } from './login-user.output';
 
 @Injectable()
-export class SignInUseCase {
+export class LoginUserUseCase {
   constructor(
     private readonly userRepository: UserRepository,
     private readonly cryptography: CryptographyAdapter,
   ) {}
-  async handle(input: SignInInput): Promise<SignInOutput> {
+  async handle(input: LoginUserInput): Promise<LoginUserOutput> {
     const { accessId, password } = input;
     const userResponse = await this.userRepository.getByAccessId(accessId);
     if (!userResponse) throw new InvalidParamError('accessId');

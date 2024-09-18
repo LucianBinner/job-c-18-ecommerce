@@ -1,12 +1,12 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { UnauthorizedError } from '../../errors/unauthorized-error';
-import { BearerTokenUtil } from '../../utils/http/bearer-token-util';
+import { UnauthorizedError } from '../../errors/unauthorized.error';
+import { BearerTokenUtil } from '../../utils/http/bearer-token.util';
 import { CryptographyAdapter } from '../../adapters';
-import { UserRoleRepository } from '../../repositories/user-role/user-role-repository';
+import { UserRoleRepository } from '../../repositories/user-role/user-role.repository';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuardHelper implements CanActivate {
   constructor(
     private readonly bearerTokenUtil: BearerTokenUtil,
     private readonly cryptographyAdapter: CryptographyAdapter,
