@@ -1,3 +1,6 @@
 import { UserRequest } from '../../entrypoints/request/user-request';
 
-export type SaveUserInput = UserRequest;
+export type UpdateUserInput = {
+  id: number;
+  user: UserRequest;
+};

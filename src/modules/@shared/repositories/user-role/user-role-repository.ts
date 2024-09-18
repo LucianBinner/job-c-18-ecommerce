@@ -32,4 +32,12 @@ export class UserRoleRepository {
       },
     });
   }
+
+  async deleteManyByUserId(userId: number): Promise<void> {
+    await this.prisma.userRole.deleteMany({
+      where: {
+        userId,
+      },
+    });
+  }
 }

@@ -28,8 +28,9 @@ export class AuthGuard implements CanActivate {
         const rolesUser = await this.userRoleRepository.getByUserId(
           tokenInfo.id,
         );
-        const permissionIsValid = rolesUser.find(roleUser =>
-          permissions.includes(roleUser.role),
+        const permissionIsValid = rolesUser.find(
+          roleUser =>
+            permissions.includes(roleUser.role) || roleUser.role === 'Admin',
         );
         if (tokenInfo && (permissions.length === 0 || permissionIsValid)) {
           request.userId = tokenInfo.id;
